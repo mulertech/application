@@ -6,7 +6,6 @@ namespace mtphp\Application\Tests\Middleware;
 
 use mtphp\Application\Hub;
 use mtphp\Application\Tests\FakeClass\AppControllerFake;
-use mtphp\Router\Mapping\MtRoute;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -25,7 +24,6 @@ class ControllerMiddleware extends Hub implements MiddlewareInterface
      */
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-//        $route = $request->getAttribute(MtRoute::class);
         return (new AppControllerFake())->fake();
     }
 }

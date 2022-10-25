@@ -41,7 +41,7 @@ abstract class Application
     /**
      * @return ContainerInterface
      */
-    public function container(): ContainerInterface
+    protected function container(): ContainerInterface
     {
         return self::$container;
     }
@@ -49,7 +49,7 @@ abstract class Application
     /**
      * @return Object|null User object
      */
-    public function user(): ?Object
+    protected function getUser(): ?Object
     {
         return self::$user ?? null;
     }
@@ -57,7 +57,7 @@ abstract class Application
     /**
      * @return bool
      */
-    public function userSet(): bool
+    protected function userSet(): bool
     {
         return isset(self::$user);
     }

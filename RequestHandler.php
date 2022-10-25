@@ -4,6 +4,8 @@
 namespace mtphp\Application;
 
 
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -41,6 +43,8 @@ class RequestHandler extends Application implements RequestHandlerInterface
 
     /**
      * @inheritDoc
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
@@ -66,6 +70,8 @@ class RequestHandler extends Application implements RequestHandlerInterface
 
     /**
      * @return MiddlewareInterface|null
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     private function getNextMiddleware(): ?MiddlewareInterface
     {

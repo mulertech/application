@@ -56,7 +56,7 @@ class ApplicationTest extends TestCase
         $app->setContainer(new Container([new Definition(RequestHandlerInterface::class, RequestHandler::class)]));
         $app->run(ServerRequest::fromGlobals());
         self::assertTrue($app->userSet());
-        self::assertInstanceOf(FakeUser::class, $app->user());
+        self::assertInstanceOf(FakeUser::class, $app->getUser());
     }
 
     public function testLoadEnv()

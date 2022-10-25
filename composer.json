@@ -18,7 +18,6 @@
   "autoload": {
     "psr-4": {
       "MulerTech\\Application\\": "./"
-    },
-    "files": ["src/functions_include.php"]
+    }
   }
 }

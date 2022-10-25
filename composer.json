@@ -1,0 +1,24 @@
+{
+  "name": "mulertech/application",
+  "description": "This application run request handlers with request message received and produce a response message",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sébastien Muler",
+      "email": "sebastien.muler@mulertech.net"
+    }
+  ],
+  "require": {
+    "psr/container": "^1.0",
+    "psr/http-message": "^1.0",
+    "psr/http-server-handler": "^1.0",
+    "psr/http-server-middleware": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "MulerTech\\Application\\": "./"
+    },
+    "files": ["src/functions_include.php"]
+  }
+}

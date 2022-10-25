@@ -1,7 +1,7 @@
 <?php
 
 
-namespace mtphp\Application\Tests\FakeClass;
+namespace MulerTech\Application\Tests\FakeClass;
 
 
 class FakeUser

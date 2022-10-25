@@ -1,10 +1,10 @@
 <?php
 
 
-namespace mtphp\Application\Tests\Middleware;
+namespace MulerTech\Application\Tests\Middleware;
 
 
-use mtphp\Application\Hub;
+use MulerTech\Application\Hub;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -12,7 +12,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 /**
  * Class ControllerMiddleware
- * @package mtphp\Application\Tests\Middleware
+ * @package MulerTech\Application\Tests\Middleware
  * @author Sébastien Muler
  */
 class SwitchToOtherMiddleware extends Hub implements MiddlewareInterface

@@ -1,15 +1,15 @@
 <?php
 
-namespace mtphp\Application\Tests;
+namespace MulerTech\Application\Tests;
 
 use GuzzleHttp\Psr7\ServerRequest;
-use mtphp\Application\Hub;
-use mtphp\Application\RequestHandler;
-use mtphp\Application\Tests\FakeClass\FakeUser;
-use mtphp\Application\Tests\Middleware\ControllerMiddleware;
-use mtphp\Application\Tests\Middleware\NotInterceptRequestMiddleware;
-use mtphp\Application\Tests\Middleware\SwitchToOtherMiddleware;
-use mtphp\Application\Tests\Middleware\UserMiddleware;
+use MulerTech\Application\Hub;
+use MulerTech\Application\RequestHandler;
+use MulerTech\Application\Tests\FakeClass\FakeUser;
+use MulerTech\Application\Tests\Middleware\ControllerMiddleware;
+use MulerTech\Application\Tests\Middleware\NotInterceptRequestMiddleware;
+use MulerTech\Application\Tests\Middleware\SwitchToOtherMiddleware;
+use MulerTech\Application\Tests\Middleware\UserMiddleware;
 use mtphp\Container\Container;
 use mtphp\Container\Definition;
 use PHPUnit\Framework\TestCase;

@@ -1,8 +1,6 @@
 <?php
 
-
-namespace mtphp\Application;
-
+namespace MulerTech\Application;
 
 use mtphp\Container\Loader;
 use mtphp\Database\NonRelational\DocumentStore\FileType\Env;
@@ -17,7 +15,7 @@ use RuntimeException;
 
 /**
  * Class Hub
- * @package mtphp\Application
+ * @package MulerTech\Application
  * @author Sébastien Muler
  */
 class Hub extends Application

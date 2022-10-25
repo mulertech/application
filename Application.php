@@ -1,12 +1,12 @@
 <?php
 
-namespace mtphp\Application;
+namespace MulerTech\Application;
 
 use Psr\Container\ContainerInterface;
 
 /**
  * Class Application
- * @package mtphp\Application
+ * @package MulerTech\Application
  * @author Sébastien Muler
  */
 abstract class Application

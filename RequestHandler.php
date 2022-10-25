@@ -1,8 +1,6 @@
 <?php
 
-
-namespace mtphp\Application;
-
+namespace MulerTech\Application;
 
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -14,7 +12,7 @@ use RuntimeException;
 
 /**
  * Class RequestHandler
- * @package mtphp\Application
+ * @package MulerTech\Application
  * @author Sébastien Muler
  */
 class RequestHandler extends Application implements RequestHandlerInterface

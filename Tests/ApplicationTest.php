@@ -10,8 +10,8 @@ use MulerTech\Application\Tests\Middleware\ControllerMiddleware;
 use MulerTech\Application\Tests\Middleware\NotInterceptRequestMiddleware;
 use MulerTech\Application\Tests\Middleware\SwitchToOtherMiddleware;
 use MulerTech\Application\Tests\Middleware\UserMiddleware;
-use mtphp\Container\Container;
-use mtphp\Container\Definition;
+use MulerTech\Container\Container;
+use MulerTech\Container\Definition;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Server\RequestHandlerInterface;
 

@@ -2,7 +2,7 @@
 
 namespace MulerTech\Application;
 
-use mtphp\Container\Loader;
+use MulerTech\Container\Loader;
 use mtphp\Database\NonRelational\DocumentStore\FileType\Env;
 use mtphp\Database\NonRelational\DocumentStore\PathManipulation;
 use Psr\Container\ContainerExceptionInterface;

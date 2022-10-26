@@ -1,6 +1,6 @@
 {
   "name": "mulertech/application",
-  "description": "This application run request handlers with request message received and produce a response message",
+  "description": "This application run request handler with request message received and produce a response message",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [

@@ -13,7 +13,8 @@
     "psr/container": "^1.0",
     "psr/http-message": "^1.0",
     "psr/http-server-handler": "^1.0",
-    "psr/http-server-middleware": "^1.0"
+    "psr/http-server-middleware": "^1.0",
+    "mulertech/container": "^1.0"
   },
   "autoload": {
     "psr-4": {

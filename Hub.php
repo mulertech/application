@@ -74,7 +74,7 @@ class Hub extends Application
     }
 
     /**
-     * Load the config parameters of the $configPath path (recursively).
+     * Load the config parameters of the $configPath path (recursively) into the container.
      * @param ContainerInterface $container
      * @param string $configPath
      */
@@ -87,6 +87,7 @@ class Hub extends Application
             ->setFileList(PathManipulation::fileList($configPath))
             ->setLoader(Loader\YamlLoader::class)
             ->loadParameters($container);
+        parent::$container = $container;
     }
 
     /**

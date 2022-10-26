@@ -49,7 +49,7 @@ abstract class Application
     /**
      * @return Object|null User object
      */
-    protected function getUser(): ?Object
+    public function getUser(): ?Object
     {
         return self::$user ?? null;
     }
@@ -57,7 +57,7 @@ abstract class Application
     /**
      * @return bool
      */
-    protected function userSet(): bool
+    public function userSet(): bool
     {
         return isset(self::$user);
     }

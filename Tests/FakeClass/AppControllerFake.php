@@ -3,7 +3,7 @@
 
 namespace MulerTech\Application\Tests\FakeClass;
 
-use GuzzleHttp\Psr7\Response;
+use mtphp\HttpRequest\Response;
 
 class AppControllerFake
 {

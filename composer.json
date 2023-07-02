@@ -10,12 +10,12 @@
     }
   ],
   "require": {
-    "php": ">=7.3",
-    "psr/container": "^1.0",
-    "psr/http-message": "^1.0",
-    "psr/http-server-handler": "^1.0",
-    "psr/http-server-middleware": "^1.0",
-    "mulertech/container": "^1.0"
+    "php": ">=7.4",
+    "psr/container": "^2",
+    "psr/http-message": "^2",
+    "psr/http-server-handler": "^1",
+    "psr/http-server-middleware": "^1",
+    "mulertech/container": "^1"
   },
   "require-dev": {
     "phpunit/phpunit": "^9"

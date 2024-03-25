@@ -2,7 +2,7 @@
 
 namespace MulerTech\Application\Tests;
 
-use mtphp\HttpRequest\ServerRequest;
+use MulerTech\HttpRequest\ServerRequest;
 use MulerTech\Application\Hub;
 use MulerTech\Application\RequestHandler;
 use MulerTech\Application\Tests\FakeClass\FakeUser;

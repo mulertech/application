@@ -3,8 +3,8 @@
 namespace MulerTech\Application;
 
 use MulerTech\Container\Loader;
-use mtphp\Database\NonRelational\DocumentStore\FileType\Env;
-use mtphp\Database\NonRelational\DocumentStore\PathManipulation;
+use MulerTech\Database\NonRelational\DocumentStore\FileType\Env;
+use MulerTech\Database\NonRelational\DocumentStore\PathManipulation;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;

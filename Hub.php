@@ -3,8 +3,8 @@
 namespace MulerTech\Application;
 
 use MulerTech\Container\Loader;
-use MulerTech\Database\NonRelational\DocumentStore\FileType\Env;
-use MulerTech\Database\NonRelational\DocumentStore\PathManipulation;
+use MulerTech\FileManipulation\FileType\Env;
+use MulerTech\FileManipulation\PathManipulation;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -21,13 +21,13 @@ use RuntimeException;
 class Hub extends Application
 {
 
-    private const FILE_INTO_PROJECT_PATH = 'composer.json';
-    private const PROJECT_PATH_PARAMETER = 'hub.project_path';
+    private const string FILE_INTO_PROJECT_PATH = 'composer.json';
+    private const string PROJECT_PATH_PARAMETER = 'hub.project_path';
 
     /**
      * @var array
      */
-    private $middlewares;
+    private array $middlewares;
 
     /**
      * Hub constructor.
@@ -57,7 +57,9 @@ class Hub extends Application
     {
         $requestHandler = $this->container()->get(RequestHandlerInterface::class);
         if (empty($this->middlewares)) {
-            throw new RuntimeException('The middleware list was not given into the Hub construct, it\'s necessary.');
+            throw new RuntimeException(
+                'The middleware list was not given into the Hub construct, it\'s necessary.'
+            );
         }
         foreach ($this->middlewares as $middleware) {
             $requestHandler->pipe($middleware);
@@ -70,7 +72,8 @@ class Hub extends Application
      */
     public static function loadEnv(string $filename): void
     {
-        Env::loadEnv($filename);
+        $envFile = new Env($filename);
+        $envFile->loadEnv();
     }
 
     /**

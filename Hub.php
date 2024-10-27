@@ -3,8 +3,8 @@
 namespace MulerTech\Application;
 
 use MulerTech\Container\Loader;
-use MulerTech\Database\NonRelational\DocumentStore\FileType\Env;
-use MulerTech\Database\NonRelational\DocumentStore\PathManipulation;
+use MulerTech\FileManipulation\FileType\Env;
+use MulerTech\FileManipulation\PathManipulation;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -27,7 +27,7 @@ class Hub extends Application
     /**
      * @var array
      */
-    private $middlewares;
+    private array $middlewares;
 
     /**
      * Hub constructor.
@@ -70,7 +70,8 @@ class Hub extends Application
      */
     public static function loadEnv(string $filename): void
     {
-        Env::loadEnv($filename);
+        $envFile = new Env($filename);
+        $envFile->loadEnv();
     }
 
     /**

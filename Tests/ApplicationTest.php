@@ -17,13 +17,12 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class ApplicationTest extends TestCase
 {
-
     public function testApplication(): void
     {
         $app = new Hub([ControllerMiddleware::class]);
         $app->setContainer(new Container([new Definition(RequestHandlerInterface::class, RequestHandler::class)]));
         $return = $app->run(ServerRequest::fromGlobals());
-        self::assertEquals('Cette page n\'existe pas...', $return->getBody()->getContents());
+        self::assertEquals('Page not found...', $return->getBody()->getContents());
     }
 
     public function testApplicationWithoutMiddlewareList(): void

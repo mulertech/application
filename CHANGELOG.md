@@ -1,5 +1,11 @@
 # Release notes for application
 
+## v1.0.10 - 2024-10-28
+
+v1.0.10
+
+**Full Changelog**: https://github.com/mulertech/application/compare/v1.0.8...v1.0.10
+
 ## [v1.0.9] - 2024-03-25
 
 ## [v1.0.8] - 2024-07-02

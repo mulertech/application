@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": ">=8.3",
+    "php": "^8.3",
     "psr/container": "^2",
     "psr/http-message": "^2",
     "psr/http-server-handler": "^1",
@@ -19,7 +19,10 @@
     "mulertech/file-manipulation": "^1"
   },
   "require-dev": {
-    "phpunit/phpunit": "^10",
+    "mulertech/docker-tests": "^1",
+    "roave/security-advisories": "dev-latest"
+    ,
+    "phpunit/phpunit": "^10|^11",
     "mulertech/http-request": "^1"
   },
   "autoload": {

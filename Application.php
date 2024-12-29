@@ -24,7 +24,7 @@ abstract class Application
     /**
      * @param ContainerInterface $container
      */
-    protected function setContainer(ContainerInterface $container): void
+    public function setContainer(ContainerInterface $container): void
     {
         self::$container = $container;
     }

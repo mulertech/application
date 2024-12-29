@@ -20,31 +20,15 @@ use RuntimeException;
  */
 class Hub extends Application
 {
-
     private const string FILE_INTO_PROJECT_PATH = 'composer.json';
     private const string PROJECT_PATH_PARAMETER = 'hub.project_path';
-
-    /**
-     * @var array
-     */
-    private array $middlewares;
 
     /**
      * Hub constructor.
      * @param array $middlewares
      */
-    public function __construct(array $middlewares = [])
-    {
-        $this->middlewares = $middlewares;
-    }
-
-    /**
-     * @param ContainerInterface $container
-     */
-    public function setContainer(ContainerInterface $container): void
-    {
-        parent::setContainer($container);
-    }
+    public function __construct(private array $middlewares = [])
+    {}
 
     /**
      * Load the first middleware.
@@ -56,14 +40,17 @@ class Hub extends Application
     public function run(ServerRequestInterface $request): ResponseInterface
     {
         $requestHandler = $this->container()->get(RequestHandlerInterface::class);
+
         if (empty($this->middlewares)) {
             throw new RuntimeException(
                 'The middleware list was not given into the Hub construct, it\'s necessary.'
             );
         }
+
         foreach ($this->middlewares as $middleware) {
             $requestHandler->pipe($middleware);
         }
+
         return $requestHandler->handle($request);
     }
 
@@ -85,11 +72,13 @@ class Hub extends Application
     {
         //Set the project path into the container
         $container->setParameter(self::PROJECT_PATH_PARAMETER, self::projectPath());
+
         $loader = new Loader();
         $loader
             ->setFileList(PathManipulation::fileList($configPath))
             ->setLoader(Loader\YamlLoader::class)
             ->loadParameters($container);
+
         parent::$container = $container;
     }
 
@@ -100,9 +89,11 @@ class Hub extends Application
     {
         $path = $_SERVER['SCRIPT_FILENAME'];
         $noLoop = 0;
+
         while (!file_exists($path . DIRECTORY_SEPARATOR . self::FILE_INTO_PROJECT_PATH)) {
             $path = dirname($path);
             $noLoop++;
+
             if ($noLoop === 10) {
                 throw new RuntimeException(
                     sprintf(
@@ -112,6 +103,7 @@ class Hub extends Application
                 );
             }
         }
+
         return $path;
     }
 

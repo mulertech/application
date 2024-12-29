@@ -11,16 +11,15 @@ use Psr\Container\ContainerInterface;
  */
 abstract class Application
 {
-
     /**
      * @var ContainerInterface
      */
-    protected static $container;
+    protected static ContainerInterface $container;
 
     /**
      * @var Object User
      */
-    protected static $user;
+    protected static object $user;
 
     /**
      * @param ContainerInterface $container

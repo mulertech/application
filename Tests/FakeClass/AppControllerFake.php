@@ -10,6 +10,6 @@ class AppControllerFake
 
     public function fake()
     {
-        return new Response(404, [], 'Cette page n\'existe pas...');
+        return new Response(404, [], 'Page not found...');
     }
 }

@@ -70,4 +70,18 @@ class ApplicationTest extends TestCase
         Hub::loadConfig($container, __DIR__ . DIRECTORY_SEPARATOR . 'FakeClass');
         self::assertEquals('valueone', $container->getParameter('config2.anotherone'));
     }
+
+    public function testProjectPath()
+    {
+        self::assertEquals('.', Hub::projectPath());
+    }
+
+    public function testProjectPathWithException()
+    {
+        $_SERVER['SCRIPT_FILENAME'] = '/var/www/html/vendor/phpunit/phpunit/phpunit/a/b/c/d/e/f/g/h/i';
+        $this->expectExceptionMessage(
+            'Class : Hub, function : projectPath. Unable to find the project path, verify that the file "composer.json" exits into the project path...'
+        );
+        Hub::projectPath();
+    }
 }

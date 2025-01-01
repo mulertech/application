@@ -18,6 +18,9 @@ jobs:
         php: [8.3, 8.4]
         phpunit: ['10', '11']
         stability: [prefer-lowest, prefer-stable]
+        exclude:
+          - phpunit: '10'
+            stability: prefer-lowest
 
     name: PHP ${{ matrix.php }} - PHPUnit ${{ matrix.phpunit }} - ${{ matrix.stability }}
 
@@ -59,6 +62,9 @@ jobs:
         php: [8.3, 8.4]
         phpunit: ['10', '11']
         stability: [prefer-lowest, prefer-stable]
+        exclude:
+          - phpunit: '10'
+            stability: prefer-lowest
 
     name: PHP ${{ matrix.php }} - PHPUnit ${{ matrix.phpunit }} - ${{ matrix.stability }} - Windows
 

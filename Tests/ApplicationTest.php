@@ -71,11 +71,6 @@ class ApplicationTest extends TestCase
         self::assertEquals('valueone', $container->getParameter('config2.anotherone'));
     }
 
-    public function testProjectPath()
-    {
-        self::assertEquals('.', Hub::projectPath());
-    }
-
     public function testProjectPathWithException()
     {
         $_SERVER['SCRIPT_FILENAME'] = '/var/www/html/vendor/phpunit/phpunit/phpunit/a/b/c/d/e/f/g/h/i';

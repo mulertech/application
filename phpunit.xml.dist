@@ -5,6 +5,7 @@
          beStrictAboutTestsThatDoNotTestAnything="false"
          colors="true"
          cacheDirectory=".phpunit.cache"
+         testdox="true"
          displayDetailsOnTestsThatTriggerDeprecations="true"
          displayDetailsOnTestsThatTriggerWarnings="true"
          displayDetailsOnPhpunitDeprecations="true">

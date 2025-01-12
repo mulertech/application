@@ -34,7 +34,7 @@ jobs:
           php-version: ${{ matrix.php }}
           ini-values: error_reporting=E_ALL
           tools: composer:v2
-          coverage: none
+          coverage: xdebug
 
       - name: Set PHPUnit
         uses: nick-fields/retry@v3
@@ -52,13 +52,6 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/phpunit --display-deprecation
-
-      - name: Generate test coverage badge
-        uses: timkrase/phpunit-coverage-badge@v1.2.0
-        with:
-          coverage_badge_path: 'badge-coverage.svg'
-          push_badge: true
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
 
   windows_tests:
     runs-on: windows-2022

@@ -2,9 +2,8 @@
 
 namespace MulerTech\Application\Tests;
 
-use MulerTech\HttpRequest\ServerRequest;
-use MulerTech\Application\Hub;
 use MulerTech\Application\RequestHandler;
+use MulerTech\Application\Hub;
 use MulerTech\Application\Tests\FakeClass\FakeUser;
 use MulerTech\Application\Tests\Middleware\ControllerMiddleware;
 use MulerTech\Application\Tests\Middleware\NotInterceptRequestMiddleware;
@@ -12,6 +11,7 @@ use MulerTech\Application\Tests\Middleware\SwitchToOtherMiddleware;
 use MulerTech\Application\Tests\Middleware\UserMiddleware;
 use MulerTech\Container\Container;
 use MulerTech\Container\Definition;
+use MulerTech\HttpRequest\ServerRequest;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Server\RequestHandlerInterface;
 

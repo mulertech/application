@@ -19,7 +19,7 @@
         <ini name="intl.default_locale" value="C.UTF-8" />
         <ini name="memory_limit" value="2048M" />
     </php>
-    <source restrictNotices="true" restrictWarnings="true">
+    <source ignoreIndirectDeprecations="true" restrictNotices="true" restrictWarnings="true">
         <include>
             <directory>./</directory>
         </include>

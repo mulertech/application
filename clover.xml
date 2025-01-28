@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1736884192">
-  <project timestamp="1736884192">
+<coverage generated="1738097759">
+  <project timestamp="1738097759">
     <package name="MulerTech\Application">
       <file name="/home/runner/work/application/application/src/Application.php">
         <class name="MulerTech\Application\Application" namespace="MulerTech\Application">

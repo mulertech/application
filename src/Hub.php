@@ -2,11 +2,11 @@
 
 namespace MulerTech\Application;
 
+use MulerTech\Container\Container;
 use MulerTech\Container\Loader;
 use MulerTech\FileManipulation\FileType\Env;
 use MulerTech\FileManipulation\PathManipulation;
 use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -25,10 +25,11 @@ class Hub extends Application
 
     /**
      * Hub constructor.
-     * @param array $middlewares
+     * @param array<int, class-string> $middlewares
      */
     public function __construct(private array $middlewares = [])
-    {}
+    {
+    }
 
     /**
      * Load the first middleware.
@@ -65,10 +66,10 @@ class Hub extends Application
 
     /**
      * Load the config parameters of the $configPath path (recursively) into the container.
-     * @param ContainerInterface $container
+     * @param Container $container
      * @param string $configPath
      */
-    public static function loadConfig(ContainerInterface $container, string $configPath): void
+    public static function loadConfig(Container $container, string $configPath): void
     {
         //Set the project path into the container
         $container->setParameter(self::PROJECT_PATH_PARAMETER, self::projectPath());

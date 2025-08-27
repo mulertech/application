@@ -19,15 +19,21 @@
     "mulertech/file-manipulation": "^1"
   },
   "require-dev": {
-    "mulertech/docker-tests": "^1",
-    "roave/security-advisories": "dev-latest"
-    ,
-    "phpunit/phpunit": "^10|^11",
+    "friendsofphp/php-cs-fixer": "^3.6",
+    "mulertech/docker-dev": "^1",
+    "phpstan/phpstan": "^2.1",
+    "roave/security-advisories": "dev-latest",
+    "phpunit/phpunit": "^11",
     "mulertech/http-request": "^1"
   },
   "autoload": {
     "psr-4": {
-      "MulerTech\\Application\\": "./"
+      "MulerTech\\Application\\": "./src"
     }
-  }
+  },
+    "autoload-dev": {
+        "psr-4": {
+        "MulerTech\\Application\\Tests\\": "./tests"
+        }
+    }
 }

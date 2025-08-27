@@ -17,16 +17,15 @@ use RuntimeException;
  */
 class RequestHandler extends Application implements RequestHandlerInterface
 {
-
     /**
      * @var string[]
      */
-    private $middlewares;
+    private array $middlewares;
 
     /**
      * @var int
      */
-    private $index = 0;
+    private int $index = 0;
 
     /**
      * Add middleware
@@ -55,14 +54,17 @@ class RequestHandler extends Application implements RequestHandlerInterface
 
     /**
      * @param string $middleware
-     * @return $this|RequestHandlerInterface|null
+     * @return RequestHandlerInterface|null
      */
     public function getMiddleware(string $middleware): ?RequestHandlerInterface
     {
-        if ($key = array_search($middleware, $this->middlewares, true)) {
+        $key = array_search($middleware, $this->middlewares, true);
+
+        if (is_int($key)) {
             $this->index = $key;
             return $this;
         }
+
         return null;
     }
 

@@ -11,11 +11,10 @@ use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use RuntimeException;
 
 /**
- * Class Hub
- * @package MulerTech\Application
+ * Class Hub.
+ *
  * @author Sébastien Muler
  */
 class Hub extends Application
@@ -25,6 +24,7 @@ class Hub extends Application
 
     /**
      * Hub constructor.
+     *
      * @param array<int, class-string> $middlewares
      */
     public function __construct(private array $middlewares = [])
@@ -33,8 +33,7 @@ class Hub extends Application
 
     /**
      * Load the first middleware.
-     * @param ServerRequestInterface $request
-     * @return ResponseInterface
+     *
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
@@ -43,9 +42,7 @@ class Hub extends Application
         $requestHandler = $this->container()->get(RequestHandlerInterface::class);
 
         if (empty($this->middlewares)) {
-            throw new RuntimeException(
-                'The middleware list was not given into the Hub construct, it\'s necessary.'
-            );
+            throw new \RuntimeException('The middleware list was not given into the Hub construct, it\'s necessary.');
         }
 
         foreach ($this->middlewares as $middleware) {
@@ -55,9 +52,6 @@ class Hub extends Application
         return $requestHandler->handle($request);
     }
 
-    /**
-     * @param string $filename
-     */
     public static function loadEnv(string $filename): void
     {
         $envFile = new Env($filename);
@@ -66,12 +60,10 @@ class Hub extends Application
 
     /**
      * Load the config parameters of the $configPath path (recursively) into the container.
-     * @param Container $container
-     * @param string $configPath
      */
     public static function loadConfig(Container $container, string $configPath): void
     {
-        //Set the project path into the container
+        // Set the project path into the container
         $container->setParameter(self::PROJECT_PATH_PARAMETER, self::projectPath());
 
         $loader = new Loader();
@@ -83,29 +75,20 @@ class Hub extends Application
         parent::$container = $container;
     }
 
-    /**
-     * @return string
-     */
     public static function projectPath(): string
     {
         $path = $_SERVER['SCRIPT_FILENAME'];
         $noLoop = 0;
 
-        while (!file_exists($path . DIRECTORY_SEPARATOR . self::FILE_INTO_PROJECT_PATH)) {
+        while (!file_exists($path.DIRECTORY_SEPARATOR.self::FILE_INTO_PROJECT_PATH)) {
             $path = dirname($path);
-            $noLoop++;
+            ++$noLoop;
 
-            if ($noLoop === 10) {
-                throw new RuntimeException(
-                    sprintf(
-                        'Class : Hub, function : projectPath. Unable to find the project path, verify that the file "%s" exits into the project path...',
-                        self::FILE_INTO_PROJECT_PATH
-                    )
-                );
+            if (10 === $noLoop) {
+                throw new \RuntimeException(sprintf('Class : Hub, function : projectPath. Unable to find the project path, verify that the file "%s" exits into the project path...', self::FILE_INTO_PROJECT_PATH));
             }
         }
 
         return $path;
     }
-
 }

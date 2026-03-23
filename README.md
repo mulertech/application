@@ -6,7 +6,7 @@ ___
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/mulertech/application/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/mulertech/application/actions/workflows/tests.yml)
 [![GitHub PHPStan Action Status](https://img.shields.io/github/actions/workflow/status/mulertech/application/phpstan.yml?branch=main&label=phpstan&style=flat-square)](https://github.com/mulertech/application/actions/workflows/phpstan.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/mulertech/application.svg?style=flat-square)](https://packagist.org/packages/mulertech/application)
-[![Test Coverage](https://raw.githubusercontent.com/mulertech/application/main/badge-coverage.svg)](https://packagist.org/packages/mulertech/application)
+[![Test Coverage](https://raw.githubusercontent.com/mulertech/application/badge/badge-coverage.svg)](https://packagist.org/packages/mulertech/application)
 ___
 
 This application run request handlers with request message received and produce a response message

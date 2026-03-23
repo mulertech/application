@@ -121,6 +121,7 @@ jobs:
       - name: Push badge to badge branch
         run: |
           cp badge-coverage.svg /tmp/badge-coverage.svg
+          rm badge-coverage.svg
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin badge || true

@@ -41,6 +41,10 @@ class Hub extends Application
     {
         $requestHandler = $this->container()->get(RequestHandlerInterface::class);
 
+        if (!$requestHandler instanceof RequestHandler) {
+            throw new \RuntimeException('The RequestHandlerInterface must be an instance of RequestHandler.');
+        }
+
         if (empty($this->middlewares)) {
             throw new \RuntimeException('The middleware list was not given into the Hub construct, it\'s necessary.');
         }
@@ -77,6 +81,7 @@ class Hub extends Application
 
     public static function projectPath(): string
     {
+        /** @var string $path */
         $path = $_SERVER['SCRIPT_FILENAME'];
         $noLoop = 0;
 

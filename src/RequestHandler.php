@@ -70,7 +70,13 @@ class RequestHandler extends Application implements RequestHandlerInterface
             $middleware = $this->middlewares[$this->index];
             ++$this->index;
 
-            return $this->container()->get($middleware);
+            $instance = $this->container()->get($middleware);
+
+            if (!$instance instanceof MiddlewareInterface) {
+                throw new \RuntimeException(sprintf('The middleware "%s" must implement %s.', $middleware, MiddlewareInterface::class));
+            }
+
+            return $instance;
         }
 
         return null;

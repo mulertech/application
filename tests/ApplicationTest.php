@@ -4,7 +4,9 @@ namespace MulerTech\Application\Tests;
 
 use MulerTech\Application\RequestHandler;
 use MulerTech\Application\Hub;
+use MulerTech\Application\Tests\FakeClass\FakeRequestHandler;
 use MulerTech\Application\Tests\FakeClass\FakeUser;
+use MulerTech\Application\Tests\FakeClass\NotAMiddleware;
 use MulerTech\Application\Tests\Middleware\ControllerMiddleware;
 use MulerTech\Application\Tests\Middleware\NotInterceptRequestMiddleware;
 use MulerTech\Application\Tests\Middleware\SwitchToOtherMiddleware;
@@ -13,6 +15,7 @@ use MulerTech\Container\Container;
 use MulerTech\Container\Definition;
 use MulerTech\HttpRequest\ServerRequest;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 class ApplicationTest extends TestCase
@@ -78,5 +81,21 @@ class ApplicationTest extends TestCase
             'Class : Hub, function : projectPath. Unable to find the project path, verify that the file "composer.json" exits into the project path...'
         );
         Hub::projectPath();
+    }
+
+    public function testRunWithInvalidRequestHandler(): void
+    {
+        $app = new Hub([ControllerMiddleware::class]);
+        $app->setContainer(new Container([new Definition(RequestHandlerInterface::class, FakeRequestHandler::class)]));
+        $this->expectExceptionMessage('The RequestHandlerInterface must be an instance of RequestHandler.');
+        $app->run(ServerRequest::fromGlobals());
+    }
+
+    public function testMiddlewareNotImplementingMiddlewareInterface(): void
+    {
+        $app = new Hub([NotAMiddleware::class]);
+        $app->setContainer(new Container([new Definition(RequestHandlerInterface::class, RequestHandler::class)]));
+        $this->expectExceptionMessage(sprintf('The middleware "%s" must implement %s.', NotAMiddleware::class, MiddlewareInterface::class));
+        $app->run(ServerRequest::fromGlobals());
     }
 }
